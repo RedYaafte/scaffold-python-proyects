@@ -1,0 +1,11 @@
+services:
+  fastapi-app:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    container_name: fastapi-app
+    tty: true
+    command: >
+      sh -c "uvicorn main:app --reload --host 0.0.0.0 --port 8000"
